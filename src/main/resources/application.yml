@@ -3,6 +3,13 @@ spring:
     name: money-service
   profiles:
     active: dev  #default profile
+
+
+  #for avoiding Open-In-View warnings:
+  jpa:
+    open-in-view: false
+
+
 #  kafka:
 #    bootstrap-servers: localhost:9092
 #    consumer:
@@ -29,11 +36,22 @@ spring:
         spring.json.add.type.headers: true
 
 
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: health, info
 management:
   endpoints:
     web:
       exposure:
-        include: health, info
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: never
+
 
 jwt:
   auth-secret: ${JWT_AUTH_SECRET}
