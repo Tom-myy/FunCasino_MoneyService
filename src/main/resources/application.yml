@@ -2,21 +2,12 @@ spring:
   application:
     name: money-service
   profiles:
-    active: dev  #default profile
-
+    active: dev
 
   #for avoiding Open-In-View warnings:
   jpa:
     open-in-view: false
 
-
-#  kafka:
-#    bootstrap-servers: localhost:9092
-#    consumer:
-#      group-id: money-service-group
-#      auto-offset-reset: earliest
-#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-#      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
@@ -28,19 +19,8 @@ spring:
         spring.json.use.type.headers: true
         spring.json.trusted.packages: "com.evofun.events"
     listener:
-      missing-topics-fatal: false #mb change to TRUE (default)
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-      properties:
-        spring.json.add.type.headers: true
+      missing-topics-fatal: false
 
-
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: health, info
 management:
   endpoints:
     web:
@@ -52,13 +32,23 @@ management:
         enabled: true
       show-details: never
 
+clients:
+  services:
+    user:
+      base-url: ${USER_SERVICE_BASE_URL}
+    game:
+      base-url: ${GAME_SERVICE_BASE_URL}
 
 jwt:
-  auth-secret: ${JWT_AUTH_SECRET}
-  game-secret: ${JWT_GAME_SECRET}
-  system-secret: ${JWT_SYSTEM_SECRET}
+  secrets:
+    user: ${JWT_USER_SECRET}         # user JWT
+    internal: ${JWT_INTERNAL_SECRET} # internal JWT (interservice)
 
-game-service:
-  base-url: ${GAME_SERVICE_BASE_URL}
-
+security:
+  user:
+    issuer: ${JWT_USER_ISSUER}
+  internal:
+    issuer: ${JWT_INTERNAL_ISSUER}
+    expected-audience: money-service
+    allowed-subjects: user-service,game-service
 

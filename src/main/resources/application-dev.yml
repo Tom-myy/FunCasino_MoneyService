@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8092
 
 spring:
   datasource:
@@ -10,12 +10,24 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: none
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-        physical_naming_strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-#    naming:
-#      physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: validate
+    show-sql: false
 
+  flyway:
+    enabled: true
+    url: ${FLYWAY_URL:jdbc:postgresql://localhost:5432/money_db}
+    user: ${FLYWAY_USER:service_migrator}
+    password: ${FLYWAY_PASSWORD:moneyservicedb_migrator_pass}
+
+    locations: classpath:db/migration
+
+    default-schema: money_schema
+    schemas: money_schema
+    create-schemas: false
+
+# Swagger
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true

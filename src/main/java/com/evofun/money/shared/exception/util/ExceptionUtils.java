@@ -1,5 +1,7 @@
-package com.evofun.money.shared.error;
+package com.evofun.money.shared.exception.util;
 
+import com.evofun.money.shared.exception.code.ErrorPrefix;
+import com.evofun.money.shared.exception.model.FieldErrorDto;
 import jakarta.validation.ConstraintViolationException;
 
 import java.time.LocalDateTime;

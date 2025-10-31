@@ -1,6 +1,10 @@
-package com.evofun.money.shared.error.errorHandler;
+package com.evofun.money.shared.exception.exceptionHandler;
 
-import com.evofun.money.shared.error.*;
+import com.evofun.money.feature.reservation.exception.NotEnoughBalanceException;
+import com.evofun.money.shared.exception.code.ErrorCode;
+import com.evofun.money.shared.exception.model.ErrorDto;
+import com.evofun.money.shared.exception.code.ErrorPrefix;
+import com.evofun.money.shared.exception.util.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -33,14 +37,14 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorDto> handleUnexpectedException(Exception ex) {
         String errorId = ExceptionUtils.generateErrorId(ErrorPrefix.UNKNOWN);
 
-        log.error("❌ Unexpected REST error (errorId: '{}'), msg: '{}'", errorId, ex.getMessage(), ex);
+        log.error("❌ Unexpected REST exception (errorId: '{}'), msg: '{}'", errorId, ex.getMessage(), ex);
 
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(new ErrorDto(
                         ErrorCode.UNKNOWN_ERROR,
                         errorId,
-                        "Internal server error. Please contact support.",
+                        "Internal server exception. Please contact support.",
                         null)
                 );
     }

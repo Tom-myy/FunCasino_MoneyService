@@ -20,7 +20,7 @@ public class WalletController {
         this.walletUseCase = walletUseCase;
     }
 
-    @GetMapping("/userBalanceById/{id}")
+    @GetMapping("/gameBalanceById/{id}")
     public ResponseEntity<?> getUserById(@PathVariable UUID id) {
         Optional<GameBalance> optionalGameBalance = walletUseCase.getGameBalanceById(id);
 

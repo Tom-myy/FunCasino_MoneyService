@@ -1,19 +1,15 @@
-package com.evofun.money.shared.error;
+package com.evofun.money.shared.exception.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ErrorDto {
-    private ErrorCode errorCode;
-    private String errorId;
+public class FieldErrorDto {
+    private String field;
     private String message;
-    private List<FieldErrorDto> errors;
 }

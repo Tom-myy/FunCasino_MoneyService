@@ -5,12 +5,22 @@ spring:
     hibernate:
       ddl-auto: none
 
-game-service:
-  base-url: http://localhost:8081
+clients:
+  services:
+    user:
+      base-url: http://localhost:8081
+    game:
+      base-url: http://localhost:8083
 
-money-service:
-  base-url: http://localhost:8082
-  money-url: http://localhost:8082
+jwt:
+  secrets:
+    user: evofun-secret-user-key-2025-abc123$$-dev         # user JWT
+    internal: evofun-secret-internal-key-2025-abc123$$-dev # internal JWT (interservice)
 
-game:
-  ws-base-url: ws://localhost:8080/ws
+security:
+  user:
+    issuer: https://user-service-dev
+  internal:
+    issuer: https://evofun-internal-dev
+    expected-audience: money-service
+    allowed-subjects: user-service,game-service

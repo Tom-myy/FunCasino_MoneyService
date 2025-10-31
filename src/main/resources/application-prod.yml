@@ -12,9 +12,9 @@ spring:
 
   flyway:
     enabled: true
-    url: jdbc:postgresql://money-db:5432/money_db
-    user: service_migrator
-    password: moneyservicedb_migrator_pass
+    url: ${FLYWAY_URL}
+    user: ${FLYWAY_USER}
+    password: ${FLYWAY_PASSWORD}
 
     locations: classpath:db/migration
 

@@ -5,7 +5,7 @@ import com.evofun.money.domain.model.GameBalanceTransaction;
 import com.evofun.money.domain.model.enums.GameBalanceTransactionType;
 import com.evofun.money.domain.repo.GameBalanceRepo;
 import com.evofun.money.domain.repo.GameBalanceTransactionRepo;
-import com.evofun.money.shared.error.NotEnoughBalanceException;
+import com.evofun.money.feature.reservation.exception.NotEnoughBalanceException;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
@@ -22,8 +22,8 @@ public class ReservationUseCase {
     }
 
     @Transactional
-    public void returnBet(UUID userId, BigDecimal amount, GameBalanceTransactionType transactionType) {/// refactor
-    /// save balance and balance transaction into DB
+    public void returnBet(UUID userId, BigDecimal amount, GameBalanceTransactionType transactionType) {
+    //TODO save balance and balance transaction into DB
 
         GameBalance gameBalance = gameBalanceRepo.findById(userId)
                 .orElseThrow(() -> new RuntimeException("Balance not found"));//TODO change to custom Ex
@@ -34,7 +34,7 @@ public class ReservationUseCase {
         GameBalanceTransaction gameBalanceTransaction = new GameBalanceTransaction(
                 userId,
                 amount,
-                transactionType//todo RFI - type: BET
+                transactionType
         );
         gameBalanceTransactionRepo.save(gameBalanceTransaction);
 
@@ -42,7 +42,7 @@ public class ReservationUseCase {
 
     @Transactional
     public void reserveMoneyForBet(UUID userId, BigDecimal amount, GameBalanceTransactionType transactionType) {/// refactor
-    /// save balance and balance transaction into DB
+    //TODO save balance and balance transaction into DB
 
         GameBalance gameBalance = gameBalanceRepo.findById(userId)
                 .orElseThrow(() -> new RuntimeException("Balance not found"));//TODO change to custom Ex
@@ -54,7 +54,7 @@ public class ReservationUseCase {
             GameBalanceTransaction gameBalanceTransaction = new GameBalanceTransaction (
                     userId,
                     amount,
-                    transactionType//todo RFI - type: BET
+                    transactionType
             );
             gameBalanceTransactionRepo.save(gameBalanceTransaction);
         } else {

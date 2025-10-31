@@ -11,13 +11,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
-
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
 @Service
 public class GameFinishedListener {
-
     private final WalletUseCase walletUseCase;
     private final DlqKafkaProducer dlqProducer;
     private final ObjectMapper objectMapper = new ObjectMapper();
@@ -56,8 +54,5 @@ public class GameFinishedListener {
                 dlqProducer.sendDlq(dlq);
             }
         }
-
-
-
     }
 }

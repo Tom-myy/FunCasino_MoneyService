@@ -7,8 +7,8 @@ import com.evofun.money.domain.repo.GeneralBalanceRepo;
 import com.evofun.money.domain.repo.GeneralBalanceTransactionRepo;
 import com.evofun.money.domain.model.GameBalance;
 import com.evofun.money.domain.model.GeneralBalance;
-import com.evofun.money.shared.error.InvalidTransfer;
-import com.evofun.money.shared.error.NotEnoughMoneyForTransfer;
+import com.evofun.money.feature.transfer.exception.InvalidTransfer;
+import com.evofun.money.feature.transfer.exception.NotEnoughMoneyForTransfer;
 import com.evofun.money.domain.model.GameBalanceTransaction;
 import com.evofun.money.domain.model.enums.GameBalanceTransactionType;
 import com.evofun.money.domain.model.GeneralBalanceTransaction;
@@ -34,7 +34,7 @@ public class TransferUseCase {
 
     @Transactional
     public void transferBetweenBalances(UUID userId, BalanceType from, BalanceType to, BigDecimal amount) {
-        //TODO refactor: divide repeatable code to methods
+        //TODO refactor
         if (from == to) {
             throw new InvalidTransfer("The same wallet type is not allowed for transfer.");//TODO handle in RestControllerAdvice
         }
@@ -95,7 +95,7 @@ public class TransferUseCase {
                     null);
             generalBalanceTransactionRepo.save(generalBalanceTransaction);
         } else {
-            throw new RuntimeException("Unknown error during transfer.");//TODO handle in RestControllerAdvice
+            throw new RuntimeException("Unknown exception during transfer.");//TODO handle in RestControllerAdvice
         }
     }
 }

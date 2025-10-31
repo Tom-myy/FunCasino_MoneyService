@@ -1,4 +1,4 @@
-package com.evofun.money.shared.error;
+package com.evofun.money.shared.exception;
 
 import lombok.Getter;
 
