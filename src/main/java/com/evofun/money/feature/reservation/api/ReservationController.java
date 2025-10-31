@@ -3,7 +3,7 @@ package com.evofun.money.feature.reservation.api;
 import com.evofun.money.feature.reservation.app.ReservationUseCase;
 import com.evofun.money.feature.transfer.api.request.BetCancelRequest;
 import com.evofun.money.feature.reservation.api.request.MoneyReservationRequest;
-import com.evofun.money.domain.model.enums.GameBalanceTransactionType;
+import com.evofun.money.shared.domain.model.enums.GameBalanceTransactionType;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,10 +1,10 @@
 package com.evofun.money.feature.reservation.app;
 
-import com.evofun.money.domain.model.GameBalance;
-import com.evofun.money.domain.model.GameBalanceTransaction;
-import com.evofun.money.domain.model.enums.GameBalanceTransactionType;
-import com.evofun.money.domain.repo.GameBalanceRepo;
-import com.evofun.money.domain.repo.GameBalanceTransactionRepo;
+import com.evofun.money.shared.domain.model.GameBalance;
+import com.evofun.money.shared.domain.model.GameBalanceTransaction;
+import com.evofun.money.shared.domain.model.enums.GameBalanceTransactionType;
+import com.evofun.money.shared.domain.repo.GameBalanceRepo;
+import com.evofun.money.shared.domain.repo.GameBalanceTransactionRepo;
 import com.evofun.money.feature.reservation.exception.NotEnoughBalanceException;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;

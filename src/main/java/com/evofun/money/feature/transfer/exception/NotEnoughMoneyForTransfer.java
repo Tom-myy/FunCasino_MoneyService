@@ -1,6 +1,6 @@
 package com.evofun.money.feature.transfer.exception;
 
-import com.evofun.money.domain.model.enums.BalanceType;
+import com.evofun.money.shared.domain.model.enums.BalanceType;
 import lombok.Getter;
 
 @Getter

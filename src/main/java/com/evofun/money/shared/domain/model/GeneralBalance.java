@@ -1,4 +1,4 @@
-package com.evofun.money.domain.model;
+package com.evofun.money.shared.domain.model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -7,32 +7,32 @@ import java.time.OffsetDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "user_game_balances")
+@Table(name = "user_general_balances")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class GameBalance {
+public class GeneralBalance {
 
     @Id
     @Column(name = "user_id", nullable = false, updatable = false)
     private UUID userId;
 
-    @Column(name = "game_balance", nullable = false)
-    private BigDecimal gameBalance;
+    @Column(name = "balance", nullable = false)
+    private BigDecimal balance;
 
-    @Column(name = "created_at", insertable = false, updatable = false)
+    @Column(name = "created_at ", insertable = false, updatable = false)
     private OffsetDateTime createdAt;
 
-    @Column(name = "updated_at", insertable = false, updatable = false)
+    @Column(name = "updated_at ", insertable = false, updatable = false)
     private OffsetDateTime updatedAt;
 
     @PrePersist
     public void prePersist() {
-        gameBalance = BigDecimal.valueOf(0);
+        balance = BigDecimal.valueOf(1000);
     }
 
-    public GameBalance(UUID userId) {
+    public GeneralBalance(UUID userId) {
         this.userId = userId;
     }
 }

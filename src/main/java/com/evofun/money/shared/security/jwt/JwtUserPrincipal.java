@@ -1,4 +1,4 @@
-package com.evofun.money.security.jwt;
+package com.evofun.money.shared.security.jwt;
 
 import lombok.Getter;
 import lombok.Setter;

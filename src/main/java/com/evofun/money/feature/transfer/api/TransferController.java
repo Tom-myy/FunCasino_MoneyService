@@ -1,7 +1,7 @@
 package com.evofun.money.feature.transfer.api;
 
 import com.evofun.money.feature.transfer.app.TransferUseCase;
-import com.evofun.money.security.jwt.JwtUserPrincipal;
+import com.evofun.money.shared.security.jwt.JwtUserPrincipal;
 import com.evofun.money.feature.transfer.api.request.TransferBetweenBalancesRequest;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;

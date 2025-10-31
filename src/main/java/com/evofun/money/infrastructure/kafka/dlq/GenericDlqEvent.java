@@ -1,4 +1,4 @@
-package com.evofun.money.shared.kafka.dlq;
+package com.evofun.money.infrastructure.kafka.dlq;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;

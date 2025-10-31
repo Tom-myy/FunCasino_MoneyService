@@ -1,6 +1,6 @@
-package com.evofun.money.domain.repo;
+package com.evofun.money.shared.domain.repo;
 
-import com.evofun.money.domain.model.GeneralBalance;
+import com.evofun.money.shared.domain.model.GeneralBalance;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.UUID;
 

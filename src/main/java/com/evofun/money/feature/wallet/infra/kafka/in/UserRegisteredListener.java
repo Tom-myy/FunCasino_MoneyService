@@ -2,8 +2,8 @@ package com.evofun.money.feature.wallet.infra.kafka.in;
 
 import com.evofun.events.UserRegisteredEvent;
 import com.evofun.money.feature.wallet.app.WalletUseCase;
-import com.evofun.money.shared.kafka.dlq.DlqKafkaProducer;
-import com.evofun.money.shared.kafka.dlq.GenericDlqEvent;
+import com.evofun.money.infrastructure.kafka.dlq.DlqKafkaProducer;
+import com.evofun.money.infrastructure.kafka.dlq.GenericDlqEvent;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.dao.DataIntegrityViolationException;

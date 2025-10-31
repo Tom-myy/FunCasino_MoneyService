@@ -1,6 +1,6 @@
-package com.evofun.money.security.config;
+package com.evofun.money.shared.security.config;
 
-import com.evofun.money.security.jwt.JwtUserPrincipal;
+import com.evofun.money.shared.security.jwt.JwtUserPrincipal;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

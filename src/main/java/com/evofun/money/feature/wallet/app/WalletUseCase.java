@@ -1,11 +1,11 @@
 package com.evofun.money.feature.wallet.app;
 
-import com.evofun.money.domain.model.GameBalance;
-import com.evofun.money.domain.model.GameBalanceTransaction;
-import com.evofun.money.domain.model.GeneralBalance;
-import com.evofun.money.domain.repo.GameBalanceRepo;
-import com.evofun.money.domain.repo.GameBalanceTransactionRepo;
-import com.evofun.money.domain.repo.GeneralBalanceRepo;
+import com.evofun.money.shared.domain.model.GameBalance;
+import com.evofun.money.shared.domain.model.GameBalanceTransaction;
+import com.evofun.money.shared.domain.model.GeneralBalance;
+import com.evofun.money.shared.domain.repo.GameBalanceRepo;
+import com.evofun.money.shared.domain.repo.GameBalanceTransactionRepo;
+import com.evofun.money.shared.domain.repo.GeneralBalanceRepo;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;

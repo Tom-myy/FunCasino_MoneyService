@@ -1,4 +1,4 @@
-package com.evofun.money.security.handler;
+package com.evofun.money.shared.security.handler;
 
 import com.evofun.money.shared.exception.code.ErrorCode;
 import com.evofun.money.shared.exception.model.ErrorDto;

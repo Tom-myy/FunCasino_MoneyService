@@ -1,6 +1,6 @@
-package com.evofun.money.domain.model;
+package com.evofun.money.shared.domain.model;
 
-import com.evofun.money.domain.model.enums.GameBalanceTransactionType;
+import com.evofun.money.shared.domain.model.enums.GeneralBalanceTransactionType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,8 +13,8 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "game_balance_transactions")
-public class GameBalanceTransaction {
+@Table(name = "general_balance_transactions")
+public class GeneralBalanceTransaction {
 
     @Id
     @Column(name = "transaction_id", nullable = false, updatable = false)
@@ -28,7 +28,7 @@ public class GameBalanceTransaction {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "transaction_type", nullable = false, updatable = false)
-    private GameBalanceTransactionType transactionType;
+    private GeneralBalanceTransactionType transactionType;
 
     @Column(name = "context", updatable = false)
     private String context;
@@ -41,16 +41,10 @@ public class GameBalanceTransaction {
         if (transactionId == null) transactionId = UUID.randomUUID();
     }
 
-    public GameBalanceTransaction(UUID userId, BigDecimal balanceDelta, GameBalanceTransactionType transactionType, String context) {
+    public GeneralBalanceTransaction(UUID userId, BigDecimal balanceDelta, GeneralBalanceTransactionType transactionType, String context) {
         this.userId = userId;
         this.balanceDelta = balanceDelta;
         this.transactionType = transactionType;
         this.context = context;
-    }
-
-    public GameBalanceTransaction(UUID userId, BigDecimal balanceDelta, GameBalanceTransactionType transactionType) {
-        this.userId = userId;
-        this.balanceDelta = balanceDelta;
-        this.transactionType = transactionType;
     }
 }
